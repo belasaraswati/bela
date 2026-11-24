@@ -1,6 +1,6 @@
 {
-  "name": "Bels Budget",
-  "short_name": "Bels",
+  "name": "Belance",
+  "short_name": "Belance",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

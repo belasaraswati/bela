@@ -6,12 +6,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Bels">
+<meta name="apple-mobile-web-app-title" content="Belance">
 <meta name="theme-color" content="#F6F7F9">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="icon" href="icon-180.png">
-<title>Bels</title>
+<title>Belance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -136,6 +136,89 @@ nav .add svg{stroke:#fff;width:24px;height:24px}
 .loading{opacity:.55;pointer-events:none}
 .setup{padding-top:40px}
 .setup .logo{width:64px;height:64px;border-radius:20px;margin-bottom:18px}
+
+.chart{position:relative;margin:12px -2px 2px}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart .ax{font-size:9.5px;fill:#94A3B8;font-family:Inter,sans-serif}
+.chart .yl{position:absolute;right:2px;top:2px;bottom:22px;display:flex;flex-direction:column;justify-content:space-between;font-size:9.5px;color:#A3AEBE;pointer-events:none}
+.chart .tip{position:absolute;top:-6px;left:0;min-width:120px;background:var(--ink);color:#fff;border-radius:10px;padding:7px 9px;font-size:11.5px;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2}
+.chart .tip b{display:block;font-weight:600;margin-bottom:2px;font-size:11px;color:#CBD5E1}
+.chart .tip span{display:block}.chart .tip i{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px}
+.delta{font-size:13px;font-weight:600;margin-top:2px}.delta span{color:var(--muted);font-weight:400;margin-left:4px}
+.seg.mini{margin:8px 0 0;padding:2px;border-radius:10px}.seg.mini button{padding:5px 2px;font-size:12px;border-radius:8px}
+.donutrow{display:flex;align-items:center;gap:16px}
+.donut{position:relative;flex:none}.donut svg{width:100%;height:100%}
+.donut .dc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut .dc b{font-size:17px;font-weight:700;letter-spacing:-.02em}.donut .dc small{font-size:11px;color:var(--muted)}
+.lg{flex:1;min-width:0;display:flex;flex-direction:column;gap:7px}
+.lgi{display:flex;align-items:center;gap:8px;font-size:12.5px}.lgi i{width:9px;height:9px;border-radius:3px;flex:none}
+.lgi span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink)}.lgi b{font-weight:600;font-size:12.5px}
+.gbars{display:flex;align-items:flex-end;gap:6px;margin-top:14px}
+.gb{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;border-radius:9px;padding-top:4px}
+.gb.on{background:var(--blue-soft)}
+.gbb{display:flex;gap:2px;align-items:flex-end;height:calc(100% - 20px);width:100%;justify-content:center}
+.gbb i{width:42%;max-width:12px;border-radius:4px 4px 2px 2px}
+.gb small{font-size:10.5px;color:var(--muted)}.gb.on small{color:var(--blue);font-weight:600}
+.stack{display:flex;height:12px;border-radius:9px;overflow:hidden;gap:2px;margin:12px 0 14px}.stack i{display:block;height:100%}
+.sankey{width:100%;height:auto;display:block}.sankey .sk{font-size:10px;fill:#0F172A;font-family:Inter,sans-serif;font-weight:500;paint-order:stroke;stroke:#fff;stroke-width:3px}
+.toggle{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted);margin:14px 2px 0;cursor:pointer}
+.toggle small{color:var(--faint)}
+.sw{width:36px;height:22px;border-radius:99px;background:#D5DBE5;position:relative;flex:none;transition:.2s}
+.sw i{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.sw.on{background:var(--blue)}.sw.on i{left:16px}
+.sw2{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:8px;vertical-align:1px}
+.spark{width:90px;height:28px;flex:none}
+.search{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 14px;margin-bottom:12px}
+.search svg{width:18px;height:18px;stroke:var(--muted);flex:none}.search input{flex:1;border:0;outline:0;background:none;font-size:15px}
+.fsel{appearance:none;-webkit-appearance:none;border:1px solid var(--line);background:var(--card);border-radius:11px;padding:8px 12px;font-size:13px;font-weight:500;flex:none}
+.fsel.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.sec.small{margin:18px 2px 8px}.sec.small h2{font-size:13px;color:var(--muted);font-weight:500}
+.cal .d.l1{background:#EEF3FD;border-color:#E1E9FB}.cal .d.l2{background:#D3E0FA;border-color:#C6D6F8}
+.cal .d.l3{background:#9FBCF7;border-color:#9FBCF7}.cal .d.l4{background:#4F7BE0;border-color:#4F7BE0;color:#fff}
+.cal .d.l3 small,.cal .d.l4 small{color:inherit}.cal .d.l4 small{color:#fff}
+.cal .d small{color:var(--muted)}
+.legend .heat{display:inline-flex;gap:3px}.legend .heat i{width:12px;height:12px;border-radius:4px;margin:0}
+.heat .l1{background:#EEF3FD}.heat .l2{background:#D3E0FA}.heat .l3{background:#9FBCF7}.heat .l4{background:#4F7BE0}
+.row .card .mid{font-size:17px}
+.cal .d.sel{background:var(--ink)!important;border-color:var(--ink)!important;color:#fff!important}.cal .d.sel small{color:#fff!important}
+
+/* v3: lebih ringkas */
+html,body{font-size:14px}
+#app{padding:calc(var(--st) + 12px) 16px calc(var(--sb) + 92px)}
+.top{margin-bottom:14px}.top h1{font-size:20px}.top .sub{font-size:12px}
+.card{padding:15px 16px;border-radius:16px;margin-bottom:10px}
+.label{font-size:11.5px}
+.big{font-size:25px;margin:3px 0 1px}
+.mid{font-size:16px;margin-top:2px}.mid2{font-size:19px;font-weight:700;letter-spacing:-.02em;margin-top:2px}
+.split{margin-top:12px;padding-top:11px}.split .v{font-size:13.5px}
+.sec{margin:18px 2px 8px}.sec h2{font-size:13.5px}.sec a{font-size:12px}
+.item{padding:10px 14px;gap:10px}.it-t{font-size:13.5px}.it-s{font-size:11.5px}.it-v{font-size:13.5px}
+.ic{width:32px;height:32px;border-radius:10px;font-size:11px}.ic.sm{width:28px;height:28px;font-size:11px;border-radius:9px}
+.hint{font-size:11.5px}
+.row .card .mid{font-size:15px}
+.chip{padding:7px 11px;font-size:12.5px}.seg button{padding:8px 4px;font-size:12.5px}
+.amt input{font-size:28px}.btn{padding:13px;font-size:14.5px}
+.cardhead{display:flex;justify-content:space-between;align-items:center}.cardhead a{font-size:12px;color:var(--blue);font-weight:500}
+.delta{font-size:12px;margin:0}
+.today{display:flex;gap:14px;align-items:center}
+.ringwrap{position:relative;width:96px;height:96px;flex:none}.ring{width:100%;height:100%}
+.ringc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ringc small{font-size:10px;color:var(--muted)}.ringc b{font-size:15px;font-weight:700;letter-spacing:-.02em}
+.todayinfo{flex:1;min-width:0}
+.streaks{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.pill.tiny{font-size:10.5px;padding:3px 8px}
+.tinyline{font-size:10.5px;color:var(--faint);margin-top:5px}
+.goal{margin-top:10px}.goalrow{display:flex;justify-content:space-between;font-size:13px;font-weight:500}.goalrow b{font-weight:700}
+.goal .bar{margin:6px 0 4px}
+.goal-empty{display:flex;gap:12px;align-items:center;border-style:dashed;cursor:pointer}
+.donut .dc b{font-size:14px}.lgi{font-size:11.5px}.lgi b{font-size:11.5px}
+
+.info{font-size:10px;color:var(--faint)}
+.btn.sm{width:auto;padding:8px 14px;font-size:12.5px;border-radius:11px;flex:none}
+.nudge{border-color:#CFE0FB;background:#F7FAFF}.nrow{display:flex;gap:12px;align-items:center;justify-content:space-between}.nrow>div{flex:1;min-width:0}.nrow+.nrow{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.aicard{display:flex;align-items:center;gap:10px;cursor:pointer}.chev{color:var(--faint);font-size:20px}
+.planset{border-color:#CFE0FB;background:#F7FAFF}
+.pill.green{background:var(--green-soft);color:var(--green)}.pill.red{background:var(--red-soft);color:var(--red)}.pill.amber{background:#FDF4E7;color:var(--amber)}
 </style>
 </head>
 <body>
@@ -221,8 +304,8 @@ function render(){
   if (!CFG) return renderSetup();
   $('#nav').style.display = 'flex';
   document.querySelectorAll('nav [data-go]').forEach(b => b.classList.toggle('on', b.dataset.go === view));
-  if (!S) { $('#app').innerHTML = `<div class="top"><div><div class="sub">memuat data…</div><h1>Bels</h1></div></div><div class="card"><div class="empty">sebentar ya, ambil data dari spreadsheet</div></div>`; return; }
-  ({ home: vHome, cal: vCal, report: vReport, acc: vAcc })[view]();
+  if (!S) { $('#app').innerHTML = `<div class="top"><div><div class="sub">memuat data…</div><h1>Belance</h1></div></div><div class="card"><div class="empty">sebentar ya, ambil data dari spreadsheet</div></div>`; return; }
+  ({ home: vHome, cal: vCal, report: vReport, acc: vAcc, hist: vHist })[view]();
   window.scrollTo(0, 0);
 }
 
@@ -241,136 +324,618 @@ function txItem(t){
     <div class="it-v num ${cls}">${sign}${short(t.amt)}</div></div>`;
 }
 
+/* ============ analytics ============ */
+const TABN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const tabLabel = t => BLN[TABN.indexOf(t)];
+const PAL = ['#2456C7','#5B82E3','#93B0EE','#1F8A5B','#6CC29A','#B7791F','#E3AE5C','#D14343','#EC9A9A','#7C5CD6','#B9A6F0','#0E7490','#67C3D6','#64748B','#A3AEBE'];
+const catColor = c => { const i = (S.lists.spending || []).indexOf(c); return i < 0 ? '#A3AEBE' : PAL[i % PAL.length]; };
+const OUTF = ['Spending','Invest / Savings','Piutang Baru','Bayar Cicilan / Utang','Financial Goals'];
+const bigLimit = () => ls.get('hideBig', true) ? 10e6 : Infinity;
+const norm = d => String(d || '').toLowerCase().replace(/\(.*?\)/g, '').split(' - ')[0].replace(/\b(qris|payment|go-?food|shopeefood)\b/g, '').replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+
+function periodStats(tab, D){
+  const L = bigLimit();
+  const tx = D.tx.filter(t => t.tab === tab && t.amt < L);
+  const sp = tx.filter(t => t.cf === 'Spending'), inc = tx.filter(t => t.cf === 'Income');
+  const byCat = {}; sp.forEach(t => byCat[t.cat] = (byCat[t.cat] || 0) + t.amt);
+  const bySrc = {}; inc.forEach(t => bySrc[t.cat] = (bySrc[t.cat] || 0) + t.amt);
+  const out = sp.reduce((s, t) => s + t.amt, 0), inn = inc.reduce((s, t) => s + t.amt, 0);
+  const inv = tx.filter(t => t.cf === 'Invest / Savings').reduce((s, t) => s + t.amt, 0) - tx.filter(t => t.cf === 'Dari Asset / Saving').reduce((s, t) => s + t.amt, 0);
+  const p = S.periods.find(x => x.tab === tab) || {};
+  const days = p.start && p.end ? Math.round((new Date(p.end) - new Date(p.start)) / 864e5) + 1 : 30;
+  return { tab, tx, sp, byCat, bySrc, out, inn, inv, p, days };
+}
+const tabsWithData = D => S.periods.filter(p => D.tx.some(t => t.tab === p.tab)).map(p => p.tab);
+
+/* saldo per akun per hari, dihitung mundur dari saldo sekarang */
+function balanceHistory(D){
+  if (balanceHistory._k === S.updated + D.tx.length) return balanceHistory._v;
+  const names = S.accounts.map(a => a.name);
+  const cur = {}; S.accounts.forEach(a => cur[a.name] = a.balance);
+  const byDay = {};
+  D.tx.forEach(t => { if (!t.date) return; (byDay[t.date] = byDay[t.date] || []).push(t); });
+  const dates = Object.keys(byDay).sort();
+  const start = dates[0] || D.today;
+  const out = [];   // [{date, bal:{}, net}]
+  let d = new Date(D.today + 'T12:00'); const s = new Date(start + 'T12:00');
+  const b = { ...cur };
+  while (d >= s){
+    const iso = d.toISOString().slice(0, 10);
+    out.push({ date: iso, bal: { ...b }, net: names.reduce((x, n) => x + b[n], 0) });
+    (byDay[iso] || []).forEach(t => { if (t.from in b) b[t.from] += t.amt; if (t.to in b) b[t.to] -= t.amt; });
+    d = new Date(d.getTime() - 864e5);
+  }
+  out.reverse();
+  balanceHistory._k = S.updated + D.tx.length; balanceHistory._v = out;
+  return out;
+}
+
+function insights(D){
+  const tabs = tabsWithData(D); const i = tabs.indexOf(S.curTab);
+  const cur = periodStats(S.curTab, D), prev = i > 0 ? periodStats(tabs[i - 1], D) : null;
+  const res = [];
+  // laju belanja vs periode lalu di hari yang sama
+  if (prev && cur.p.start){
+    const dayIdx = Math.round((new Date(D.today) - new Date(cur.p.start)) / 864e5);
+    const lim = new Date(new Date(prev.p.start).getTime() + dayIdx * 864e5).toISOString().slice(0, 10);
+    const prevSame = prev.sp.filter(t => t.date <= lim).reduce((s, t) => s + t.amt, 0);
+    if (prevSame > 0){ const pct = (cur.out - prevSame) / prevSame * 100;
+      res.push({ ic: pct > 0 ? '↑' : '↓', cls: pct > 0 ? 'red' : 'green', t: `${Math.abs(pct).toFixed(0)}% ${pct > 0 ? 'lebih boros' : 'lebih hemat'} dari periode lalu`, s: `di hari ke-${dayIdx + 1}: ${short(cur.out)} vs ${short(prevSame)}` }); }
+  }
+  // kategori naik paling besar
+  if (prev){ let best = null;
+    Object.keys(cur.byCat).forEach(c => { const d = cur.byCat[c] - (prev.byCat[c] || 0); if (!best || d > best.d) best = { c, d }; });
+    if (best && best.d > 0) res.push({ ic: '◆', cls: '', t: `${best.c} naik ${short(best.d)}`, s: `${short(cur.byCat[best.c])} periode ini, ${short(prev.byCat[best.c] || 0)} periode lalu` }); }
+  // hari paling boros (90 hari)
+  const since = new Date(new Date(D.today).getTime() - 90 * 864e5).toISOString().slice(0, 10);
+  const wd = [0,0,0,0,0,0,0], wn = [0,0,0,0,0,0,0]; const dayTot = {};
+  D.tx.filter(t => t.cf === 'Spending' && t.date >= since && t.amt < bigLimit()).forEach(t => dayTot[t.date] = (dayTot[t.date] || 0) + t.amt);
+  Object.keys(dayTot).forEach(k => { const w = new Date(k + 'T12:00').getDay(); wd[w] += dayTot[k]; wn[w]++; });
+  const avg = wd.map((v, k) => wn[k] ? v / wn[k] : 0); const top = avg.indexOf(Math.max(...avg));
+  if (avg[top] > 0) res.push({ ic: '◷', cls: '', t: `${HARI[top]} hari paling boros`, s: `rata-rata ${short(avg[top])} per ${HARI[top]} (90 hari terakhir)` });
+  // tempat paling sering
+  const freq = {}; D.tx.filter(t => t.cf === 'Spending' && t.date >= since).forEach(t => { const k = norm(t.desc); if (k.length < 3) return; (freq[k] = freq[k] || { n: 0, v: 0 }); freq[k].n++; freq[k].v += t.amt; });
+  const f = Object.entries(freq).sort((a, b) => b[1].n - a[1].n)[0];
+  if (f && f[1].n > 2) res.push({ ic: '★', cls: '', t: `paling sering: ${f[0]}`, s: `${f[1].n}x dalam 90 hari, total ${short(f[1].v)}` });
+  return res;
+}
+
+function subscriptions(D){
+  const tabs = tabsWithData(D).slice(-4); const g = {};
+  D.tx.filter(t => t.cf === 'Spending' && tabs.includes(t.tab)).forEach(t => { const k = norm(t.desc).split(' ').slice(0, 2).join(' '); if (k.length < 3) return;
+    (g[k] = g[k] || { tabs: new Set(), amts: [], cat: t.cat, name: t.desc }).tabs.add(t.tab); g[k].amts.push(t.amt); });
+  return Object.entries(g).filter(([k, v]) => v.tabs.size >= 3 && ['Hiburan','Internet/kuota','Transfer modal','Other spending','Skin & Body Care'].includes(v.cat))
+    .map(([k, v]) => { const avg = v.amts.reduce((a, b) => a + b, 0) / v.tabs.size; const sd = Math.max(...v.amts) / Math.min(...v.amts);
+      return { k, name: v.name.split(' - ')[0].split('(')[0].trim(), cat: v.cat, perMonth: avg, n: v.tabs.size, stable: sd < 1.6 }; })
+    .filter(x => x.stable).sort((a, b) => b.perMonth - a.perMonth);
+}
+
+/* ============ charts (SVG) ============ */
+const CH = {}; let chId = 0;
+function lineChart(series, opt = {}){
+  const id = 'c' + (++chId), W = 340, H = opt.h || 150, P = { l: 4, r: 4, t: 10, b: 20 };
+  const all = series.flatMap(s => s.v.filter(v => v != null));
+  let mn = Math.min(...all), mx = Math.max(...all); if (opt.zero) mn = Math.min(0, mn); if (mx === mn) { mx += 1; mn -= 1; }
+  const pad = (mx - mn) * .12; mx += pad; if (!opt.zero) mn -= pad;
+  const n = Math.max(...series.map(s => s.v.length));
+  const X = i => P.l + (W - P.l - P.r) * (n <= 1 ? 0 : i / (n - 1)), Y = v => P.t + (H - P.t - P.b) * (1 - (v - mn) / (mx - mn));
+  let g = '';
+  [0, .5, 1].forEach(k => { const y = P.t + (H - P.t - P.b) * k; g += `<line x1="0" x2="${W}" y1="${y}" y2="${y}" stroke="#EDF0F5" stroke-width="1"/>`; });
+  series.forEach((s, si) => {
+    const pts = s.v.map((v, i) => v == null ? null : [X(i), Y(v)]).filter(Boolean); if (!pts.length) return;
+    const d = 'M' + pts.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join('L');
+    if (si === 0 && !opt.noFill) g += `<path d="${d}L${pts[pts.length - 1][0]},${H - P.b}L${pts[0][0]},${H - P.b}Z" fill="url(#g${id})"/>`;
+    g += `<path d="${d}" fill="none" stroke="${s.c}" stroke-width="${s.w || 2.2}" ${s.dash ? 'stroke-dasharray="4 4"' : ''} stroke-linecap="round" stroke-linejoin="round"/>`;
+    if (si === 0) { const p = pts[pts.length - 1]; g += `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="#fff" stroke="${s.c}" stroke-width="2"/>`; }
+  });
+  (opt.xl || []).forEach(([i, t]) => g += `<text x="${Math.min(W - 12, Math.max(12, X(i)))}" y="${H - 4}" text-anchor="middle" class="ax">${t}</text>`);
+  CH[id] = { series, X, Y, n, fmt: opt.fmt || short, lab: opt.lab || (i => i), H, P };
+  return `<div class="chart" data-ch="${id}"><svg viewBox="0 0 ${W} ${H}"><defs><linearGradient id="g${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${series[0].c}" stop-opacity=".18"/><stop offset="1" stop-color="${series[0].c}" stop-opacity="0"/></linearGradient></defs>${g}<line class="cur" x1="0" x2="0" y1="${P.t}" y2="${H - P.b}" stroke="#94A3B8" stroke-dasharray="3 3" opacity="0"/></svg><div class="tip"></div>
+    <div class="yl"><span>${short(mx)}</span><span>${short(mn)}</span></div></div>`;
+}
+function bindCharts(){
+  document.querySelectorAll('.chart[data-ch]').forEach(el => {
+    const c = CH[el.dataset.ch]; if (!c) return; const svg = el.querySelector('svg'), tip = el.querySelector('.tip'), cur = el.querySelector('.cur');
+    const mv = e => { const r = svg.getBoundingClientRect(); const x = ((e.touches ? e.touches[0].clientX : e.clientX) - r.left) / r.width * 340;
+      let i = Math.round((x - c.P.l) / (340 - c.P.l - 4) * (c.n - 1)); i = Math.max(0, Math.min(c.n - 1, i));
+      cur.setAttribute('x1', c.X(i)); cur.setAttribute('x2', c.X(i)); cur.setAttribute('opacity', 1);
+      tip.innerHTML = `<b>${c.lab(i)}</b>` + c.series.map(s => s.v[i] == null ? '' : `<span><i style="background:${s.c}"></i>${s.name ? s.name + ' ' : ''}${c.fmt(s.v[i])}</span>`).join('');
+      tip.style.opacity = 1; tip.style.left = Math.min(r.width - 120, Math.max(0, c.X(i) / 340 * r.width - 60)) + 'px'; };
+    const end = () => { cur.setAttribute('opacity', 0); tip.style.opacity = 0; };
+    el.addEventListener('touchstart', mv, { passive: true }); el.addEventListener('touchmove', mv, { passive: true }); el.addEventListener('touchend', end);
+    el.addEventListener('mousemove', mv); el.addEventListener('mouseleave', end);
+  });
+}
+function donut(segs, center, sub, size = 150){
+  const tot = segs.reduce((s, x) => s + x.v, 0) || 1, R = 60, C = 2 * Math.PI * R; let off = 0;
+  const arcs = segs.map(s => { const len = s.v / tot * C; const a = `<circle r="${R}" cx="75" cy="75" fill="none" stroke="${s.c}" stroke-width="18" stroke-dasharray="${Math.max(0, len - 1.5)} ${C}" stroke-dashoffset="${-off}" transform="rotate(-90 75 75)"/>`; off += len; return a; }).join('');
+  return `<div class="donut" style="width:${size}px;height:${size}px"><svg viewBox="0 0 150 150"><circle r="${R}" cx="75" cy="75" fill="none" stroke="#F1F4F8" stroke-width="18"/>${arcs}</svg><div class="dc"><b class="num">${center}</b><small>${sub || ''}</small></div></div>`;
+}
+function groupedBars(groups, opt = {}){
+  const mx = Math.max(1, ...groups.flatMap(g => g.vals.map(v => v.v)));
+  return `<div class="gbars" style="height:${opt.h || 130}px">${groups.map(g => `<div class="gb ${g.on ? 'on' : ''}" ${g.click ? `onclick="${g.click}"` : ''}><div class="gbb">${g.vals.map(v => `<i title="${short(v.v)}" style="height:${Math.max(2, v.v / mx * 100)}%;background:${v.c}"></i>`).join('')}</div><small>${g.label}</small></div>`).join('')}</div>`;
+}
+function stackBar(segs){
+  const tot = segs.reduce((s, x) => s + Math.max(0, x.v), 0) || 1;
+  return `<div class="stack">${segs.filter(s => s.v > 0).map(s => `<i style="width:${s.v / tot * 100}%;background:${s.c}"></i>`).join('')}</div>`;
+}
+function sankey(left, right){
+  const W = 340, gap = 8, nodeW = 8, minH = 16;
+  const tot = Math.max(left.reduce((s, x) => s + x.v, 0), right.reduce((s, x) => s + x.v, 0)) || 1;
+  const n = Math.max(left.length, right.length);
+  const H = Math.max(220, n * (minH + gap) + 60);
+  const place = arr => { const avail = H - gap * (arr.length - 1) - arr.length * minH; let y = 0;
+    return arr.map(o => { const h = minH + Math.max(0, o.v / tot * avail); const r = { ...o, y, h, used: 0 }; y += h + gap; return r; }); };
+  const L = place(left), R = place(right); let g = '';
+  // alokasi berurutan: sumber pertama mengisi tujuan pertama dulu (lebih rapi, minim silang)
+  const remL = left.map(x => x.v), remR = right.map(x => x.v); let i = 0, j = 0;
+  while (i < L.length && j < R.length){
+    const f = Math.min(remL[i], remR[j]);
+    if (f > 0){
+      const hl = L[i].h * f / L[i].v, hr = R[j].h * f / R[j].v;
+      const y0 = L[i].y + L[i].used, y1 = R[j].y + R[j].used; L[i].used += hl; R[j].used += hr;
+      const x0 = nodeW, x1 = W - nodeW, mx = W / 2;
+      g += `<path d="M${x0},${y0} C${mx},${y0} ${mx},${y1} ${x1},${y1} L${x1},${y1 + hr} C${mx},${y1 + hr} ${mx},${y0 + hl} ${x0},${y0 + hl}Z" fill="${R[j].c}" opacity=".22"/>`;
+    }
+    remL[i] -= f; remR[j] -= f; if (remL[i] <= 0.5) i++; if (remR[j] <= 0.5) j++;
+  }
+  L.forEach(o => g += `<rect x="0" y="${o.y}" width="${nodeW}" height="${o.h}" rx="2" fill="${o.c}"/><text x="${nodeW + 6}" y="${o.y + o.h / 2 + 3.5}" class="sk">${esc(o.label)} · ${short(o.v)}</text>`);
+  R.forEach(o => g += `<rect x="${W - nodeW}" y="${o.y}" width="${nodeW}" height="${o.h}" rx="2" fill="${o.c}"/><text x="${W - nodeW - 6}" y="${o.y + o.h / 2 + 3.5}" text-anchor="end" class="sk">${esc(o.label)} · ${short(o.v)}</text>`);
+  return `<svg class="sankey" viewBox="0 -4 ${W} ${H + 8}">${g}</svg>`;
+}
+const legend = segs => `<div class="lg">${segs.map(s => `<div class="lgi" ${s.click ? `onclick="${s.click}"` : ''}><i style="background:${s.c}"></i><span>${esc(s.label)}</span><b class="num">${s.right || short(s.v)}</b></div>`).join('')}</div>`;
+
+function dayJatah(D){
+  // jatah harian = (uang siap pakai di awal hari − utang paylater − tagihan tetap s/d gajian) / sisa hari
+  const hist = balanceHistory(D); const liquidOf = b => S.accounts.filter(a => ['Bank','E-wallet','Tunai'].includes(GROUP(a.name))).reduce((s, a) => s + (b[a.name] || 0), 0);
+  const payOf = b => S.accounts.filter(a => GROUP(a.name) === 'Paylater').reduce((s, a) => s + (b[a.name] || 0), 0);
+  const idx = {}; hist.forEach((h, i) => idx[h.date] = i);
+  const spendOn = {}; D.tx.forEach(t => { if (t.cf === 'Spending' && t.amt < 10e6) spendOn[t.date] = (spendOn[t.date] || 0) + t.amt; });
+  const jatahFor = iso => {
+    const i = idx[iso]; if (i == null || i === 0) return null; const b = hist[i - 1].bal;
+    const per = S.periods.find(p => p.start && iso >= p.start && iso <= p.end); if (!per) return null;
+    const left = Math.round((new Date(per.end) - new Date(iso)) / 864e5) + 1;
+    const fixed = billsBetween(iso, per.end).filter(x => !/paylater/i.test(x.name)).reduce((s, x) => s + (+x.amount || 0), 0);
+    return Math.max(0, (liquidOf(b) + payOf(b) - fixed) / left);
+  };
+  const today = jatahFor(D.today);
+  // streak hemat: hari berturut-turut (sampai kemarin, + hari ini kalau masih aman) pengeluaran ≤ jatah hari itu
+  let hemat = 0; for (let k = 0; k < 400; k++){ const iso = new Date(new Date(D.today + 'T12:00').getTime() - k * 864e5).toISOString().slice(0, 10);
+    const j = jatahFor(iso); if (j == null) break; const sp = spendOn[iso] || 0;
+    if (k === 0) { if (sp <= j) hemat++; continue; } if (sp <= j) hemat++; else break; }
+  // streak catat: hari berturut-turut ada transaksi
+  const has = new Set(D.tx.map(t => t.date)); let catat = 0;
+  for (let k = has.has(D.today) ? 0 : 1; k < 400; k++){ const iso = new Date(new Date(D.today + 'T12:00').getTime() - k * 864e5).toISOString().slice(0, 10); if (has.has(iso)) catat++; else break; }
+  const yest = new Date(new Date(D.today + 'T12:00').getTime() - 864e5).toISOString().slice(0, 10);
+  return { jatah: today == null ? 0 : today, spent: spendOn[D.today] || 0, yest: spendOn[yest] || 0, hemat, catat };
+}
+function ring(pct, over){
+  const R = 42, C = 2 * Math.PI * R, p = Math.max(0, Math.min(1, pct));
+  return `<svg viewBox="0 0 100 100" class="ring"><circle cx="50" cy="50" r="${R}" fill="none" stroke="#EEF1F6" stroke-width="9"/>
+    <circle cx="50" cy="50" r="${R}" fill="none" stroke="${over ? '#D14343' : pct > .8 ? '#E3A24F' : '#2456C7'}" stroke-width="9" stroke-linecap="round" stroke-dasharray="${C * p} ${C}" transform="rotate(-90 50 50)"/></svg>`;
+}
+/* ============ RENCANA & JATAH PINTAR ============ */
+const DEFAULT_PLAN = {
+  income: 5818468,
+  goals: [
+    { name: 'Tabungan nikah', cat: 'Tabungan nikah', monthly: 2000000, target: 0, date: '' },
+    { name: 'Dana darurat', cat: 'Dana darurat', monthly: 300000, target: 6000000, date: '' },
+  ],
+  budgets: { 'Makan/minum': 1500000, 'Belanja': 300000, 'Hiburan': 450000, 'Hadiah': 200000, 'Personal Care': 300000,
+    'Transport': 250000, 'Other spending': 200000, 'Internet/kuota': 70000, 'Transfer modal': 200000 },
+};
+const plan = () => (S.budgets && S.budgets.__plan) || null;
+const goals = () => (plan() && plan().goals) || [];
+function goalSaved(g, D){
+  if (g.account) { const a = S.accounts.find(x => x.name === g.account); return a ? Math.max(0, a.balance) : 0; }
+  return D.tx.filter(t => t.cat === g.cat && t.cf === 'Financial Goals').reduce((s, t) => s + t.amt, 0)
+       - D.tx.filter(t => t.cat === g.cat && t.cf === 'Dari Asset / Saving').reduce((s, t) => s + t.amt, 0);
+}
+function goalThisPeriod(g, D){ return D.tx.filter(t => t.tab === S.curTab && t.cat === g.cat && t.cf === 'Financial Goals').reduce((s, t) => s + t.amt, 0); }
+
+function weekendWeight(D){
+  const since = new Date(new Date(D.today).getTime() - 90 * 864e5).toISOString().slice(0, 10); const tot = {};
+  D.tx.filter(t => t.cf === 'Spending' && t.date >= since && t.amt < 1e6).forEach(t => tot[t.date] = (tot[t.date] || 0) + t.amt);
+  let we = 0, wen = 0, wd = 0, wdn = 0; for (let k = 0; k < 90; k++){ const iso = new Date(new Date(D.today).getTime() - k * 864e5).toISOString().slice(0, 10);
+    const w = new Date(iso + 'T12:00').getDay(); if (w === 0 || w === 6) { we += tot[iso] || 0; wen++; } else { wd += tot[iso] || 0; wdn++; } }
+  const r = wd && wdn && wen ? (we / wen) / (wd / wdn) : 1.3; return Math.max(1, Math.min(1.8, r));
+}
+function smartJatah(D){
+  const P = plan(); const subs = subscriptions(D); const subNames = subs.map(s => s.k);
+  const isSub = t => subNames.includes(norm(t.desc).split(' ').slice(0, 2).join(' '));
+  const per = D.per; if (!per.start) return null;
+  const subTot = subs.reduce((s, x) => s + x.perMonth, 0);
+  const fixedBills = (S.bills || []).filter(b => !/paylater/i.test(b.name)).reduce((s, b) => s + (+b.amount || 0), 0);
+  const save = P ? P.goals.reduce((s, g) => s + (+g.monthly || 0), 0) : 0;
+  const income = P ? +P.income : periodStats(S.curTab, D).inn;
+  const pool = income - save - subTot - fixedBills;
+  const flex = t => t.cf === 'Spending' && t.tab === S.curTab && t.amt < 10e6 && t.cat !== 'Pernikahan' && !isSub(t);
+  const spentBefore = D.tx.filter(t => flex(t) && t.date < D.today).reduce((s, t) => s + t.amt, 0);
+  const spentToday = D.tx.filter(t => flex(t) && t.date === D.today).reduce((s, t) => s + t.amt, 0);
+  const ww = weekendWeight(D); const wt = iso => { const d = new Date(iso + 'T12:00').getDay(); return d === 0 || d === 6 ? ww : 1; };
+  let wsum = 0; for (let d = new Date(D.today + 'T12:00'); d <= new Date(per.end + 'T12:00'); d = new Date(d.getTime() + 864e5)) wsum += wt(d.toISOString().slice(0, 10));
+  const remaining = pool - spentBefore;
+  let jatah = Math.max(0, remaining) * wt(D.today) / Math.max(1, wsum);
+  // batas realistis: uang yang benar2 ada (siap pakai − utang paylater), dibagi sisa hari
+  const real = Math.max(0, (D.liquid + D.spendToday + D.pay)) / D.daysLeft * wt(D.today) / (wsum / D.daysLeft);
+  const limitedByCash = real < jatah; jatah = Math.min(jatah, real);
+  if (P && P.start && per.start < P.start) { // rencana baru berlaku mulai periode gajian berikutnya
+    const r = Math.max(0, (D.liquid + D.spendToday + D.pay)) / D.daysLeft;
+    return { jatah: r, spent: D.spendToday, pool, income, save, subTot, fixedBills, spentBefore, remaining, ww, limitedByCash: true, weekday: r, weekend: r, real: r, pending: true };
+  }
+  const base = Math.max(0, remaining) / Math.max(1, wsum);
+  return { jatah, spent: spentToday, pool, income, save, subTot, fixedBills, spentBefore, remaining, ww, limitedByCash,
+    weekday: Math.min(base, real), weekend: Math.min(base * ww, real * ww), real };
+}
+function explainJatah(){
+  const D = derived(); const J = smartJatah(D); if (!J) return;
+  openSheet(`<h3>Cara jatah dihitung</h3>
+    <div class="list">
+      <div class="item"><div class="it-main"><div class="it-t">Pemasukan rutin</div></div><div class="it-v num">${rp(J.income)}</div></div>
+      <div class="item"><div class="it-main"><div class="it-t">Disisihkan dulu (tabungan)</div><div class="it-s">${goals().map(g => g.name + ' ' + short(g.monthly)).join(' · ') || '-'}</div></div><div class="it-v num">−${short(J.save)}</div></div>
+      <div class="item"><div class="it-main"><div class="it-t">Langganan & tagihan tetap</div></div><div class="it-v num">−${short(J.subTot + J.fixedBills)}</div></div>
+      <div class="item"><div class="it-main"><div class="it-t"><b>Bisa dipakai sebulan</b></div></div><div class="it-v num"><b>${rp(J.pool)}</b></div></div>
+      <div class="item"><div class="it-main"><div class="it-t">Sudah terpakai periode ini</div><div class="it-s">di luar langganan & pengeluaran nikah</div></div><div class="it-v num">−${short(J.spentBefore)}</div></div>
+      <div class="item"><div class="it-main"><div class="it-t">Sisa sampai gajian</div></div><div class="it-v num ${J.remaining < 0 ? 'neg' : ''}">${rp(J.remaining)}</div></div>
+    </div>
+    <div class="card" style="margin-top:10px"><div class="row" style="gap:10px"><div><div class="label">Hari kerja</div><div class="mid num">${short(J.weekday)}</div></div><div><div class="label">Sabtu–minggu</div><div class="mid num">${short(J.weekend)}</div></div></div>
+    <div class="hint">akhir pekan dapat ${J.ww.toFixed(1)}x lipat karena polamu memang lebih banyak keluar di akhir pekan. hemat hari ini = jatah besok naik sedikit.</div>
+    ${J.pending ? `<div class="hint" style="color:var(--blue)">rencana ini mulai berlaku periode gajian berikutnya. sampai gajian, jatah dihitung dari uang yang ada sekarang.</div>` : ''}
+    ${!J.pending && J.limitedByCash ? `<div class="hint" style="color:var(--amber)">jatah dibatasi uang yang benar-benar ada sekarang (setelah utang paylater). naik lagi setelah gajian.</div>` : ''}</div>
+    <button class="btn ghost" onclick="editPlan()">ubah rencana</button>`);
+}
+function editPlan(){
+  const P = plan() || DEFAULT_PLAN;
+  openSheet(`<h3>Rencana bulanan</h3>
+    <div class="field"><label>Gaji / pemasukan rutin per bulan</label><input id="pInc" inputmode="numeric" value="${(+P.income).toLocaleString('id-ID')}" oninput="fmtInput(this)"></div>
+    <div class="sec small"><h2>Disisihkan tiap gajian</h2></div>
+    <div id="pg">${P.goals.map(g => `<div class="card pgoal" style="padding:12px"><div class="grid2">
+      <div class="field" style="margin:0"><label>Nama</label><input class="gn" value="${esc(g.name)}" data-cat="${esc(g.cat || '')}" data-acc="${esc(g.account || '')}"></div>
+      <div class="field" style="margin:0"><label>Per bulan</label><input class="gm" inputmode="numeric" value="${(+g.monthly || 0).toLocaleString('id-ID')}" oninput="fmtInput(this)"></div></div>
+      <div class="grid2" style="margin-top:10px"><div class="field" style="margin:0"><label>Target total (opsional)</label><input class="gt" inputmode="numeric" value="${g.target ? (+g.target).toLocaleString('id-ID') : ''}" oninput="fmtInput(this)"></div>
+      <div class="field" style="margin:0"><label>Tercapai sebelum</label><input class="gd" type="date" value="${g.date || ''}"></div></div></div>`).join('')}</div>
+    <button class="btn" onclick="savePlan(!plan())">simpan rencana</button>`);
+}
+async function savePlan(useDefaultBudgets){
+  const base = plan() || DEFAULT_PLAN;
+  const P = { ...base };
+  if (document.getElementById('pInc')) {
+    P.income = parseAmt($('#pInc').value);
+    P.goals = [...document.querySelectorAll('.pgoal')].map(c => { const n = c.querySelector('.gn');
+      return { name: n.value.trim(), cat: n.dataset.cat || n.value.trim(), account: n.dataset.acc || '', monthly: parseAmt(c.querySelector('.gm').value), target: parseAmt(c.querySelector('.gt').value), date: c.querySelector('.gd').value }; }).filter(g => g.name);
+  }
+  const b = { ...(S.budgets || {}) }; delete b.__goals;
+  if (useDefaultBudgets) Object.assign(b, DEFAULT_PLAN.budgets);
+  if (!P.start) P.start = todayISO();
+  b.__plan = P;
+  try { await api('saveSettings', { budgets: b }); S.budgets = b; ls.set('state', S); closeSheet(); toast('rencana tersimpan'); render(); } catch(e){ toast(e.message); }
+}
+function planSetupCard(){
+  return `<div class="card planset"><div class="label">Rencana bulanan belum dipasang</div>
+    <div class="it-t" style="margin:6px 0 4px">nabung nikah 2jt + dana darurat 300rb tiap gajian, sisanya baru dibagi jadi jatah harian</div>
+    <div class="hint" style="margin-bottom:10px">sekalian pasang anggaran kategori: makan 1,5jt · belanja 300rb · hiburan 450rb · hadiah 200rb · personal care 300rb · transport 250rb</div>
+    <div class="grid2"><button class="btn ghost" onclick="editPlan()">ubah dulu</button><button class="btn" onclick="savePlan(true)">pasang</button></div></div>`;
+}
+function saveNudge(D){
+  const P = plan(); if (!P || (P.start && D.per.start < P.start)) return '';
+  const due = P.goals.filter(g => +g.monthly && goalThisPeriod(g, D) < +g.monthly);
+  if (!due.length) return '';
+  return `<div class="card nudge">${due.map(g => { const left = +g.monthly - goalThisPeriod(g, D);
+    return `<div class="nrow"><div><div class="it-t">Sisihkan ${short(left)} ke ${esc(g.name)}</div><div class="it-s">lakukan di awal periode, sebelum uangnya kepakai</div></div>
+      <button class="btn sm" onclick="openAdd({cashflow:'Financial Goals',category:'${esc(g.cat)}',amount:${left},from:'Bank Jago',description:'nabung ${esc(g.name.toLowerCase())}'})">catat</button></div>`; }).join('')}</div>`;
+}
+function goalCard(D){
+  const G = goals(); if (!G.length) return '';
+  return `<div class="card"><div class="cardhead"><span class="label">Tabungan</span><a onclick="editPlan()">atur</a></div>${G.map(g => {
+    const cur = goalSaved(g, D); const pct = g.target ? cur / g.target : 0; const thisP = goalThisPeriod(g, D);
+    let need = ''; if (g.target && g.date && cur < g.target){ const months = Math.max(1, (new Date(g.date) - new Date()) / (30.4 * 864e5)); need = ` · perlu ${short((g.target - cur) / months)}/bln`; }
+    return `<div class="goal"><div class="goalrow"><span>${esc(g.name)}</span><span class="num"><b>${short(cur)}</b>${g.target ? ' / ' + short(g.target) : ''}</span></div>
+      ${g.target ? `<div class="bar"><i style="width:${Math.min(100, pct * 100)}%;background:#1F8A5B"></i></div>` : ''}
+      <div class="it-s">periode ini ${short(thisP)} dari ${short(g.monthly)}${need}${pct >= 1 ? ' · tercapai 🎉' : ''}</div></div>`; }).join('')}</div>`;
+}
+
+/* ============ SARAN AI TIAP GAJIAN ============ */
+function adviceSummary(D){
+  const tabs = tabsWithData(D).slice(-3); const P = plan();
+  return { periode: tabs.map(t => { const s = periodStats(t, D); return { periode: tabLabel(t), masuk: s.inn, keluar: s.out, perKategori: s.byCat }; }),
+    langganan: subscriptions(D).map(s => ({ nama: s.name, perBulan: Math.round(s.perMonth) })),
+    rencana: P ? { pemasukanRutin: P.income, tabungan: P.goals.map(g => ({ nama: g.name, perBulan: g.monthly })) } : null,
+    anggaranSekarang: Object.fromEntries(Object.entries(S.budgets || {}).filter(([k, v]) => !k.startsWith('__'))),
+    saldo: { siapPakai: Math.round(D.liquid), investasi: Math.round(D.invest), utangPaylater: Math.round(D.pay) } };
+}
+async function getAdvice(force){
+  const key = 'advice_' + S.curTab; const cached = ls.get(key, null);
+  if (cached && !force) return showAdvice(cached);
+  toast('minta saran AI…');
+  try { const a = await api('advice', { summary: adviceSummary(derived()) }); ls.set(key, a); showAdvice(a); }
+  catch(e){ toast(/action tidak dikenal/.test(e.message) ? 'update Code.gs dulu ya (versi baru)' : e.message); }
+}
+function showAdvice(a){
+  const B = a.budgets || {}; window._adv = a;
+  const col = a.status === 'bahaya' ? 'red' : a.status === 'waspada' ? 'amber' : 'green';
+  openSheet(`<h3>Saran periode ini</h3>
+    <div class="card"><span class="pill ${col}">${esc(a.status || '')}</span><div class="it-t" style="white-space:normal;margin-top:8px;font-size:14.5px">${esc(a.headline || '')}</div></div>
+    <div class="list" style="margin-bottom:10px">${(a.tips || []).map((t, k) => `<div class="item"><div class="ic sm blue">${k + 1}</div><div class="it-main"><div class="it-t" style="white-space:normal;font-weight:400">${esc(t)}</div></div></div>`).join('')}</div>
+    ${Object.keys(B).length ? `<div class="sec small"><h2>Usulan anggaran</h2><span class="label num">${short(Object.values(B).reduce((s, v) => s + +v, 0))}</span></div>
+    <div class="list" style="margin-bottom:12px">${Object.entries(B).map(([c, v]) => `<div class="item"><div class="it-main"><div class="it-t"><i class="sw2" style="background:${catColor(c)}"></i>${esc(c)}</div></div><div class="it-v num">${short(+v)}${S.budgets && S.budgets[c] ? `<div class="it-s">sekarang ${short(+S.budgets[c])}</div>` : ''}</div></div>`).join('')}</div>
+    <button class="btn" style="margin-bottom:10px" onclick="applyAdvice()">pakai anggaran ini</button>` : ''}
+    <button class="btn ghost" onclick="getAdvice(true)">minta saran ulang</button>`);
+}
+async function applyAdvice(){
+  const a = window._adv; const b = { ...(S.budgets || {}) };
+  Object.entries(a.budgets || {}).forEach(([c, v]) => { if ((S.lists.spending || []).includes(c)) b[c] = Math.round(+v); });
+  try { await api('saveSettings', { budgets: b }); S.budgets = b; ls.set('state', S); closeSheet(); toast('anggaran diperbarui'); render(); } catch(e){ toast(e.message); }
+}
+
+/* ============ BERANDA ============ */
 function vHome(){
-  const D = derived();
+  const D = derived(); const J0 = dayJatah(D); const SJ = smartJatah(D);
+  const J = { ...J0, jatah: SJ ? SJ.jatah : J0.jatah, spent: SJ ? SJ.spent : J0.spent };
+  const sisa = J.jatah - J.spent, over = sisa < 0;
   const bills = billsBetween(D.today, D.per.end || D.today);
-  const billSum = bills.filter(b=>!/paylater/i.test(b.name)).reduce((s,b)=>s+(+b.amount||0),0) + Math.max(0, -D.pay);
-  const perDay = (D.liquid - billSum) / D.daysLeft;
-  const recent = D.tx.filter(t => t.date).sort((a,b)=> b.date.localeCompare(a.date) || b.row - a.row).slice(0, 8);
+  const recent = D.tx.filter(t => t.date).sort((a, b) => b.date.localeCompare(a.date) || b.row - a.row).slice(0, 5);
   const h = new Date().getHours(); const salam = h < 11 ? 'selamat pagi' : h < 15 ? 'selamat siang' : h < 19 ? 'selamat sore' : 'selamat malam';
+  const hist = balanceHistory(D); const rng = ui.nwRange || 90;
+  const H = rng === 'all' ? hist : hist.slice(-rng); const step = Math.max(1, Math.floor(H.length / 60)); const HS = H.filter((x, i) => i % step === 0 || i === H.length - 1);
+  const diff = D.net - (HS[0] ? HS[0].net : D.net);
+  const tabs = tabsWithData(D); const ci = tabs.indexOf(S.curTab);
+  const cur = periodStats(S.curTab, D), prev = ci > 0 ? periodStats(tabs[ci - 1], D) : null;
+  const cum = (st, len, cut) => { const a = []; let s = 0; const st0 = new Date(st.p.start + 'T12:00'); for (let i = 0; i < len; i++) { const iso = new Date(st0.getTime() + i * 864e5).toISOString().slice(0, 10); s += st.sp.filter(t => t.date === iso).reduce((x, t) => x + t.amt, 0); a.push(cut(i, iso) ? s : null); } return a; };
+  const len = Math.max(cur.days, prev ? prev.days : 0);
+  const cCur = cur.p.start ? cum(cur, len, (i, iso) => iso <= D.today && i < cur.days) : [];
+  const cPrev = prev && prev.p.start ? cum(prev, len, i => i < prev.days) : [];
+  const cats = Object.entries(cur.byCat).sort((a, b) => b[1] - a[1]); const top = cats.slice(0, 4).map(([c, v]) => ({ label: c, v, c: catColor(c) }));
+  const rest = cats.slice(4).reduce((s, x) => s + x[1], 0); if (rest) top.push({ label: 'lainnya', v: rest, c: '#CBD3DF' });
+  const ins = insights(D).slice(0, 3);
+  const yd = J.yest, td = J.spent;
+  const cmp = yd ? (td <= yd ? `hari ini baru ${short(td)}, kemarin ${short(yd)} 👍` : `hari ini ${short(td)}, kemarin ${short(yd)}`) : `kemarin ga ada pengeluaran ✨`;
   $('#app').innerHTML = `
   <div class="top"><div><div class="sub">${salam}</div><h1>Halo, Bel</h1></div>${refreshIcon}</div>
+
+  ${plan() ? '' : planSetupCard()}
+  <div class="card today" onclick="explainJatah()">
+    <div class="ringwrap">${ring(J.jatah ? J.spent / J.jatah : (J.spent ? 1 : 0), over)}<div class="ringc"><small>${over ? 'lewat' : 'sisa'}</small><b class="num ${over ? 'neg' : ''}">${short(Math.abs(sisa))}</b></div></div>
+    <div class="todayinfo">
+      <div class="label">Jatah hari ini <span class="info">ⓘ</span></div>
+      <div class="mid num">${rp(J.jatah)}</div>
+      <div class="it-s">terpakai ${short(J.spent)} · gajian ${D.daysLeft} hari lagi</div>
+      <div class="streaks">
+        <span class="pill tiny" title="hari berturut-turut di bawah jatah">🔥 ${J.hemat} hari hemat</span>
+        <span class="pill tiny" title="hari berturut-turut mencatat">✍️ ${J.catat} hari mencatat</span>
+      </div>
+      <div class="tinyline">${cmp}</div>
+    </div>
+  </div>
+
   <div class="card">
-    <div class="label">Kekayaan bersih</div>
-    <div class="big num">${rp(D.net)}</div>
+    <div class="cardhead"><span class="label">Kekayaan bersih</span><span class="delta ${diff < 0 ? 'neg' : 'pos'}">${diff < 0 ? '↓' : '↑'} ${short(Math.abs(diff))}</span></div>
+    <div class="mid2 num">${rp(D.net)}</div>
+    ${lineChart([{ v: HS.map(x => x.net), c: '#2456C7' }], { h: 96, xl: [[0, fdate(HS[0] && HS[0].date)], [HS.length - 1, 'hari ini']], lab: i => fdate(HS[i].date), fmt: rp })}
+    <div class="seg mini">${[[30, '1B'], [90, '3B'], [180, '6B'], ['all', 'semua']].map(([k, l]) => `<button class="${rng === k ? 'on' : ''}" onclick="ui.nwRange=${k === 'all' ? "'all'" : k};vHome()">${l}</button>`).join('')}</div>
     <div class="split">
       <div><div class="label">Siap pakai</div><div class="v num">${short(D.liquid)}</div></div>
       <div><div class="label">Investasi</div><div class="v num">${short(D.invest)}</div></div>
-      <div><div class="label">Paylater</div><div class="v num ${D.pay<0?'neg':''}">${short(D.pay)}</div></div>
+      <div><div class="label">Paylater</div><div class="v num ${D.pay < 0 ? 'neg' : ''}">${short(D.pay)}</div></div>
     </div>
   </div>
-  <div class="row">
-    <div class="card"><div class="label">Keluar hari ini</div><div class="mid num">${rp(D.spendToday)}</div></div>
-    <div class="card"><div class="label">Keluar periode ini</div><div class="mid num">${short(D.spendCur)}</div><div class="hint">masuk ${short(D.incCur)}</div></div>
-  </div>
+
+  ${saveNudge(D)}
+  ${goalCard(D)}
+  <div class="card aicard" onclick="getAdvice()"><div class="ic sm blue">✦</div><div class="it-main"><div class="it-t">Saran AI periode ini</div><div class="it-s">rencana anggaran & 3 saran dari pola belanjamu</div></div><span class="chev">›</span></div>
+
   <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div><div class="label">Aman dipakai per hari</div><div class="mid num ${perDay<0?'neg':''}">${rp(perDay)}</div></div>
-      <span class="pill blue">gajian ${D.daysLeft} hari lagi</span>
-    </div>
-    <div class="hint">uang siap pakai dikurangi tagihan & paylater, dibagi sisa hari sampai ${fdate(D.per.end)}</div>
+    <div class="cardhead"><span class="label">Keluar periode ini</span><span class="label">masuk ${short(cur.inn)}</span></div>
+    <div class="mid2 num">${rp(cur.out)}</div>
+    ${lineChart([{ v: cCur, c: '#2456C7', name: 'ini' }, { v: cPrev, c: '#B8C6DD', dash: 1, w: 1.6, name: 'lalu' }], { h: 90, zero: 1, lab: i => 'hari ke-' + (i + 1), xl: [[0, fdate(cur.p.start)], [len - 1, fdate(cur.p.end)]] })}
+    <div class="legend"><span><i style="background:#2456C7"></i>periode ini</span><span><i style="background:#B8C6DD"></i>periode lalu</span></div>
+    ${top.length ? `<div class="donutrow" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">${donut(top, short(cur.out), 'keluar', 104)}${legend(top.map(s => ({ ...s, right: Math.round(s.v / Math.max(1, cur.out) * 100) + '%' })))}</div>` : ''}
   </div>
-  ${bills.length ? `<div class="sec"><h2>Tagihan terdekat</h2></div><div class="list">${bills.slice(0,4).map(b=>`
-    <div class="item"><div class="ic red">${esc(initials(b.name))}</div><div class="it-main"><div class="it-t">${esc(b.name)}</div><div class="it-s">jatuh tempo ${fdate(b.date)}</div></div><div class="it-v num">${+b.amount? short(+b.amount) : (/paylater/i.test(b.name)? short(Math.abs((S.accounts.find(a=>a.name===b.account)||{}).balance||0)) : '-')}</div></div>`).join('')}</div>` : ''}
-  <div class="sec"><h2>Transaksi terakhir</h2><a onclick="go('cal')">lihat semua</a></div>
+
+  ${ins.length ? `<div class="sec"><h2>Insight</h2></div><div class="list">${ins.map(x => `<div class="item"><div class="ic sm ${x.cls}">${x.ic}</div><div class="it-main"><div class="it-t" style="white-space:normal">${esc(x.t)}</div><div class="it-s" style="white-space:normal">${esc(x.s)}</div></div></div>`).join('')}</div>` : ''}
+  ${bills.length ? `<div class="sec"><h2>Tagihan sampai gajian</h2></div><div class="list">${bills.slice(0, 3).map(b => `
+    <div class="item"><div class="ic sm red">${esc(initials(b.name))}</div><div class="it-main"><div class="it-t">${esc(b.name)}</div><div class="it-s">jatuh tempo ${fdate(b.date)}</div></div><div class="it-v num">${+b.amount ? short(+b.amount) : (/paylater/i.test(b.name) ? short(Math.abs((S.accounts.find(a => a.name === b.account) || {}).balance || 0)) : '-')}</div></div>`).join('')}</div>` : ''}
+  <div class="sec"><h2>Transaksi terakhir</h2><a onclick="openHistory()">lihat semua</a></div>
   <div class="list">${recent.map(txItem).join('') || '<div class="empty">belum ada transaksi</div>'}</div>`;
+  bindCharts();
 }
 
+/* ============ KALENDER (heatmap) ============ */
 function vCal(){
   const D = derived();
-  if (!ui.calMonth) ui.calMonth = D.today.slice(0,7);
-  const [y,m] = ui.calMonth.split('-').map(Number);
-  const first = new Date(y, m-1, 1), days = new Date(y, m, 0).getDate();
-  const lead = (first.getDay() + 6) % 7;
-  const spendBy = {}; D.tx.forEach(t => { if (t.cf === 'Spending' && t.date.startsWith(ui.calMonth)) spendBy[t.date] = (spendBy[t.date]||0) + t.amt; });
-  const mStart = ui.calMonth + '-01', mEnd = ui.calMonth + '-' + String(days).padStart(2,'0');
-  const billDays = new Set(billsBetween(mStart, mEnd).map(b => b.date));
-  const total = Object.values(spendBy).reduce((s,v)=>s+v,0);
-  let cells = ['sen','sel','rab','kam','jum','sab','min'].map(h=>`<div class="h">${h}</div>`).join('');
-  for (let i=0;i<lead;i++) cells += `<div class="d x"></div>`;
-  for (let d=1; d<=days; d++){
-    const iso = ui.calMonth + '-' + String(d).padStart(2,'0');
-    cells += `<button class="d ${iso===D.today?'today':''} ${iso===ui.calSel?'sel':''}" onclick="ui.calSel='${iso}';vCal()">${billDays.has(iso)?'<i class="dot"></i>':''}<span>${d}</span><small class="num">${spendBy[iso]?short(spendBy[iso]):''}</small></button>`;
+  if (!ui.calMonth) ui.calMonth = D.today.slice(0, 7);
+  const [y, m] = ui.calMonth.split('-').map(Number);
+  const first = new Date(y, m - 1, 1), days = new Date(y, m, 0).getDate(); const lead = (first.getDay() + 6) % 7;
+  const L = bigLimit(); const spendBy = {};
+  D.tx.forEach(t => { if (t.cf === 'Spending' && t.amt < L && t.date.startsWith(ui.calMonth)) spendBy[t.date] = (spendBy[t.date] || 0) + t.amt; });
+  const vals = Object.values(spendBy).sort((a, b) => a - b); const q = p => vals.length ? vals[Math.floor((vals.length - 1) * p)] : 0;
+  const lvl = v => !v ? 0 : v <= q(.25) ? 1 : v <= q(.5) ? 2 : v <= q(.8) ? 3 : 4;
+  const mEnd = ui.calMonth + '-' + String(days).padStart(2, '0');
+  const billDays = new Set(billsBetween(ui.calMonth + '-01', mEnd).map(b => b.date));
+  const total = Object.values(spendBy).reduce((s, v) => s + v, 0);
+  const active = Object.keys(spendBy).length; const noSpend = Math.min(days, Math.max(0, (D.today.startsWith(ui.calMonth) ? +D.today.slice(8) : days))) - active;
+  let cells = ['sen','sel','rab','kam','jum','sab','min'].map(h => `<div class="h">${h}</div>`).join('');
+  for (let i = 0; i < lead; i++) cells += `<div class="d x"></div>`;
+  for (let d = 1; d <= days; d++){
+    const iso = ui.calMonth + '-' + String(d).padStart(2, '0');
+    cells += `<button class="d l${lvl(spendBy[iso])} ${iso === D.today ? 'today' : ''} ${iso === ui.calSel ? 'sel' : ''}" onclick="ui.calSel='${iso}';vCal()">${billDays.has(iso) ? '<i class="dot"></i>' : ''}<span>${d}</span><small class="num">${spendBy[iso] ? short(spendBy[iso]) : ''}</small></button>`;
   }
-  const dayTx = D.tx.filter(t => t.date === ui.calSel).sort((a,b)=>b.row-a.row);
-  const dayBills = billsBetween(ui.calSel, ui.calSel);
-  const dsel = new Date(ui.calSel + 'T12:00');
-  const daySpend = dayTx.filter(t=>t.cf==='Spending').reduce((s,t)=>s+t.amt,0);
+  const dayTx = D.tx.filter(t => t.date === ui.calSel).sort((a, b) => b.row - a.row);
+  const dayBills = billsBetween(ui.calSel, ui.calSel); const dsel = new Date(ui.calSel + 'T12:00');
+  const daySpend = dayTx.filter(t => t.cf === 'Spending').reduce((s, t) => s + t.amt, 0);
   $('#app').innerHTML = `
-  <div class="top"><div><div class="sub">keluar bulan ini ${rp(total)}</div><h1>Kalender</h1></div>${refreshIcon}</div>
+  <div class="top"><div><div class="sub">pengeluaran per hari</div><h1>Kalender</h1></div><button class="iconbtn" onclick="openHistory()" aria-label="cari"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg></button></div>
+  <div class="row">
+    <div class="card"><div class="label">Keluar</div><div class="mid num">${short(total)}</div></div>
+    <div class="card"><div class="label">Rata-rata</div><div class="mid num">${short(active ? total / active : 0)}</div></div>
+    <div class="card"><div class="label">Tanpa jajan</div><div class="mid num">${Math.max(0, noSpend)} hari</div></div>
+  </div>
   <div class="card">
     <div class="calhead"><button class="iconbtn" onclick="calShift(-1)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m15 6-6 6 6 6"/></svg></button>
-      <b>${BLN[m-1]} ${y}</b>
+      <b>${BLN[m - 1]} ${y}</b>
       <button class="iconbtn" onclick="calShift(1)"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></button></div>
     <div class="cal">${cells}</div>
-    <div class="legend"><span><i style="background:var(--red)"></i>pengeluaran</span><span><i style="background:var(--amber)"></i>tagihan</span></div>
+    <div class="legend"><span>hemat</span><span class="heat"><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i></span><span>boros</span><span style="margin-left:auto"><i style="background:var(--amber);border-radius:9px"></i>tagihan</span></div>
   </div>
   <div class="sec"><h2>${HARI[dsel.getDay()]}, ${fdate(ui.calSel)}</h2><span class="label num">keluar ${rp(daySpend)}</span></div>
-  ${dayBills.length ? `<div class="list" style="margin-bottom:10px">${dayBills.map(b=>`<div class="item"><div class="ic red">!</div><div class="it-main"><div class="it-t">tagihan ${esc(b.name)}</div><div class="it-s">jatuh tempo hari ini</div></div><div class="it-v num">${+b.amount?short(+b.amount):''}</div></div>`).join('')}</div>` : ''}
+  ${dayBills.length ? `<div class="list" style="margin-bottom:10px">${dayBills.map(b => `<div class="item"><div class="ic red">!</div><div class="it-main"><div class="it-t">tagihan ${esc(b.name)}</div><div class="it-s">jatuh tempo hari ini</div></div><div class="it-v num">${+b.amount ? short(+b.amount) : ''}</div></div>`).join('')}</div>` : ''}
   <div class="list">${dayTx.map(txItem).join('') || '<div class="empty">tidak ada transaksi</div>'}</div>`;
 }
-function calShift(n){ const [y,m] = ui.calMonth.split('-').map(Number); const d = new Date(y, m-1+n, 1); ui.calMonth = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); vCal(); }
+function calShift(n){ const [y, m] = ui.calMonth.split('-').map(Number); const d = new Date(y, m - 1 + n, 1); ui.calMonth = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'); vCal(); }
 
+/* ============ LAPORAN ============ */
 function vReport(){
-  const D = derived();
-  const withTx = S.periods.filter(p => D.tx.some(t => t.tab === p.tab));
-  if (!ui.repTab) ui.repTab = S.curTab;
-  const p = S.periods.find(x => x.tab === ui.repTab) || {};
-  const tx = D.tx.filter(t => t.tab === ui.repTab);
-  const spend = tx.filter(t => t.cf === 'Spending'), inc = tx.filter(t => t.cf === 'Income');
-  const sOut = spend.reduce((s,t)=>s+t.amt,0), sIn = inc.reduce((s,t)=>s+t.amt,0);
-  const inv = tx.filter(t=>t.cf==='Invest / Savings').reduce((s,t)=>s+t.amt,0) - tx.filter(t=>t.cf==='Dari Asset / Saving').reduce((s,t)=>s+t.amt,0);
-  const byCat = {}; spend.forEach(t => byCat[t.cat] = (byCat[t.cat]||0) + t.amt);
-  const B = S.budgets || {};
-  const cats = Array.from(new Set(Object.keys(byCat).concat(Object.keys(B).filter(k=>+B[k]>0)))).sort((a,b)=>(byCat[b]||0)-(byCat[a]||0));
-  const maxC = Math.max(1, ...Object.values(byCat));
-  const last6 = withTx.slice(-6).map(pp => { const tt = D.tx.filter(t=>t.tab===pp.tab);
-    return { tab: pp.tab, out: tt.filter(t=>t.cf==='Spending').reduce((s,t)=>s+t.amt,0), inn: tt.filter(t=>t.cf==='Income').reduce((s,t)=>s+t.amt,0) }; });
-  const maxT = Math.max(1, ...last6.map(x=>Math.max(x.out,x.inn)));
-  $('#app').innerHTML = `
-  <div class="top"><div><div class="sub">${fdate(p.start)} – ${fdate(p.end)}</div><h1>Laporan</h1></div>${refreshIcon}</div>
-  <div class="hscroll">${withTx.map(pp=>`<button class="chip ${pp.tab===ui.repTab?'on':''}" onclick="ui.repTab='${pp.tab}';vReport()">${BLN[['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].indexOf(pp.tab)]}</button>`).join('')}</div>
-  <div class="card">
-    <div class="label">Selisih periode ini</div>
-    <div class="big num ${sIn-sOut<0?'neg':''}">${rp(sIn - sOut)}</div>
-    <div class="split">
-      <div><div class="label">Masuk</div><div class="v num pos">${short(sIn)}</div></div>
-      <div><div class="label">Keluar</div><div class="v num">${short(sOut)}</div></div>
-      <div><div class="label">Investasi</div><div class="v num">${short(inv)}</div></div>
+  const D = derived(); const tabs = tabsWithData(D);
+  if (!ui.repTab || !tabs.includes(ui.repTab)) ui.repTab = S.curTab;
+  const sub = ui.repSub || 'ringkasan';
+  const st = periodStats(ui.repTab, D); const i = tabs.indexOf(ui.repTab); const prev = i > 0 ? periodStats(tabs[i - 1], D) : null;
+  const head = `
+  <div class="top"><div><div class="sub">${fdate(st.p.start)} – ${fdate(st.p.end)}</div><h1>Laporan</h1></div>${refreshIcon}</div>
+  <div class="hscroll">${tabs.map(t => `<button class="chip ${t === ui.repTab ? 'on' : ''}" onclick="ui.repTab='${t}';vReport()">${tabLabel(t)}</button>`).join('')}</div>
+  <div class="seg">${[['ringkasan', 'Ringkasan'], ['kategori', 'Kategori'], ['arus', 'Arus'], ['akun', 'Aset']].map(([k, l]) => `<button class="${sub === k ? 'on' : ''}" onclick="ui.repSub='${k}';vReport()">${l}</button>`).join('')}</div>`;
+  let body = '';
+  const big = ls.get('hideBig', true);
+  const bigNote = `<div class="toggle" onclick="ls.set('hideBig',${!big});vReport()"><span class="sw ${big ? 'on' : ''}"><i></i></span><span>sembunyikan transaksi ≥ Rp10jt <small>(mis. dana nikah 50jt)</small></span></div>`;
+
+  if (sub === 'ringkasan'){
+    const all = tabs.map(t => periodStats(t, D));
+    const sr = st.inn ? (st.inn - st.out) / st.inn * 100 : 0;
+    const avgOut = all.slice(-6).reduce((s, x) => s + x.out, 0) / Math.max(1, all.slice(-6).length);
+    const dPct = prev && prev.out ? (st.out - prev.out) / prev.out * 100 : null;
+    body = `
+    <div class="card">
+      <div class="label">Selisih masuk − keluar</div><div class="big num ${st.inn - st.out < 0 ? 'neg' : ''}">${rp(st.inn - st.out)}</div>
+      <div class="split">
+        <div><div class="label">Masuk</div><div class="v num pos">${short(st.inn)}</div></div>
+        <div><div class="label">Keluar</div><div class="v num">${short(st.out)}</div></div>
+        <div><div class="label">Investasi</div><div class="v num">${short(st.inv)}</div></div>
+      </div>
     </div>
-  </div>
-  <div class="sec"><h2>Per kategori</h2><a onclick="editBudgets()">atur anggaran</a></div>
-  <div class="list">${cats.map(c => { const v = byCat[c]||0, b = +B[c]||0; const pct = b ? Math.min(100, v/b*100) : v/maxC*100;
-    return `<div class="item" style="display:block" onclick="catDetail('${esc(c).replace(/'/g,"\\'")}')"><div style="display:flex;justify-content:space-between;gap:10px"><span class="it-t">${esc(c)}</span><span class="it-v num">${rp(v)}</span></div>
-      <div class="bar"><i class="${b && v>b?'over':''}" style="width:${pct}%"></i></div>
-      ${b?`<div class="it-s" style="margin-top:5px">${v>b?'lewat '+rp(v-b):'sisa '+rp(b-v)} dari anggaran ${short(b)}</div>`:''}</div>`; }).join('') || '<div class="empty">belum ada pengeluaran</div>'}</div>
-  <div class="sec"><h2>Tren 6 periode</h2></div>
-  <div class="card">
-    <div class="trend">${last6.map(x=>`<div class="col"><div class="bars"><i class="in" style="height:${x.inn/maxT*100}%"></i><i style="height:${x.out/maxT*100}%"></i></div><small>${BLN[['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].indexOf(x.tab)]}</small></div>`).join('')}</div>
-    <div class="legend"><span><i style="background:#BFD0F3"></i>masuk</span><span><i style="background:var(--blue)"></i>keluar</span></div>
-  </div>`;
+    <div class="row">
+      <div class="card"><div class="label">Sisa dari pemasukan</div><div class="mid num ${sr < 0 ? 'neg' : ''}">${st.inn ? sr.toFixed(0) + '%' : '-'}</div><div class="bar"><i class="${sr < 0 ? 'over' : ''}" style="width:${Math.min(100, Math.abs(sr))}%"></i></div></div>
+      <div class="card"><div class="label">Rata-rata keluar/hari</div><div class="mid num">${short(st.out / st.days)}</div><div class="hint">${dPct == null ? '' : (dPct > 0 ? '↑ ' : '↓ ') + Math.abs(dPct).toFixed(0) + '% vs periode lalu'}</div></div>
+    </div>
+    <div class="card"><div class="label">Masuk vs keluar semua periode</div>
+      ${groupedBars(all.map(x => ({ label: tabLabel(x.tab), on: x.tab === ui.repTab, click: `ui.repTab='${x.tab}';vReport()`, vals: [{ v: x.inn, c: '#9FBCF7' }, { v: x.out, c: '#2456C7' }] })))}
+      <div class="legend"><span><i style="background:#9FBCF7"></i>masuk</span><span><i style="background:#2456C7"></i>keluar</span><span style="margin-left:auto">rata-rata keluar ${short(avgOut)}</span></div></div>
+    <div class="card"><div class="label">Sisa dari pemasukan per periode</div>
+      ${lineChart([{ v: all.map(x => x.inn ? Math.round((x.inn - x.out) / x.inn * 100) : 0), c: '#1F8A5B' }], { h: 110, zero: 1, noFill: 1, lab: k => tabLabel(all[k].tab), fmt: v => v + '%', xl: all.map((x, k) => [k, tabLabel(x.tab)]) })}</div>
+    ${bigNote}`;
+  }
+
+  if (sub === 'kategori'){
+    const B = S.budgets || {};
+    const cats = Array.from(new Set(Object.keys(st.byCat).concat(Object.keys(B).filter(k => +B[k] > 0)))).sort((a, b) => (st.byCat[b] || 0) - (st.byCat[a] || 0));
+    ui._cats = cats;
+    const segs = cats.filter(c => st.byCat[c]).map(c => ({ label: c, v: st.byCat[c], c: catColor(c) }));
+    body = `
+    <div class="card"><div class="donutrow">${donut(segs.slice(0, 8), short(st.out), 'keluar', 140)}${legend(segs.slice(0, 6).map(s => ({ ...s, right: Math.round(s.v / st.out * 100) + '%' })))}</div></div>
+    <div class="sec"><h2>Semua kategori</h2><a onclick="editBudgets()">atur anggaran</a></div>
+    <div class="list">${cats.map((c, k) => { const v = st.byCat[c] || 0, b = +B[c] || 0, pv = prev ? (prev.byCat[c] || 0) : 0; const ch = pv ? (v - pv) / pv * 100 : null;
+      return `<div class="item" style="display:block" onclick="catDetail(${k})"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><span class="it-t"><i class="sw2" style="background:${catColor(c)}"></i>${esc(c)}</span><span class="it-v num">${rp(v)}</span></div>
+        <div class="bar"><i class="${b && v > b ? 'over' : ''}" style="width:${b ? Math.min(100, v / b * 100) : v / Math.max(1, st.out) * 100}%;${b && v > b ? '' : 'background:' + catColor(c)}"></i></div>
+        <div class="it-s" style="margin-top:5px;display:flex;justify-content:space-between"><span>${b ? (v > b ? 'lewat ' + short(v - b) : 'sisa ' + short(b - v)) + ' dari ' + short(b) : (st.out ? Math.round(v / st.out * 100) + '% dari total' : '')}</span><span class="${ch > 0 ? 'neg' : 'pos'}">${ch == null ? '' : (ch > 0 ? '↑' : '↓') + Math.abs(ch).toFixed(0) + '%'}</span></div></div>`; }).join('') || '<div class="empty">belum ada pengeluaran</div>'}</div>
+    ${bigNote}`;
+  }
+
+  if (sub === 'arus'){
+    let srcs = Object.entries(st.bySrc).sort((a, b) => b[1] - a[1]).map(([k, v], j) => ({ label: k.trim(), v, c: ['#1F8A5B','#3FA477','#6CC29A','#9AD7B9','#C2E8D5'][j % 5] }));
+    if (srcs.length > 4) { const r = srcs.slice(3).reduce((s, x) => s + x.v, 0); srcs = srcs.slice(0, 3).concat([{ label: 'lainnya', v: r, c: '#C2E8D5' }]); }
+    let dest = Object.entries(st.byCat).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ label: k, v, c: catColor(k) }));
+    if (dest.length > 5) { const r = dest.slice(5).reduce((s, x) => s + x.v, 0); dest = dest.slice(0, 5).concat([{ label: 'lainnya', v: r, c: '#CBD3DF' }]); }
+    if (st.inv > 0) dest.push({ label: 'Investasi', v: st.inv, c: '#7C5CD6' });
+    const outT = dest.reduce((s, x) => s + x.v, 0), inT = srcs.reduce((s, x) => s + x.v, 0);
+    if (inT > outT) dest.push({ label: 'Sisa', v: inT - outT, c: '#9FBCF7' });
+    if (outT > inT) srcs.push({ label: 'Pakai tabungan', v: outT - inT, c: '#D14343' });
+    body = `<div class="card"><div class="label" style="margin-bottom:4px">Dari mana → ke mana</div><div class="hint" style="margin:0 0 12px">${outT > inT ? 'periode ini keluar lebih besar dari masuk, kekurangannya ' + short(outT - inT) + ' diambil dari saldo' : 'sisa ' + short(inT - outT) + ' dari pemasukan periode ini'}</div>
+      ${srcs.length || dest.length ? sankey(srcs, dest) : '<div class="empty">belum ada data</div>'}</div>
+      <div class="sec"><h2>Sumber pemasukan</h2></div>
+      <div class="card">${stackBar(srcs.filter(s => s.label !== 'Pakai tabungan'))}${legend(srcs.filter(s => s.label !== 'Pakai tabungan'))}</div>
+      ${bigNote}`;
+  }
+
+  if (sub === 'akun'){
+    const groups = ['Bank','E-wallet','Tunai','Investasi'];
+    const gc = { Bank: '#2456C7', 'E-wallet': '#1F8A5B', Tunai: '#B7791F', Investasi: '#7C5CD6' };
+    const gsum = g => S.accounts.filter(a => GROUP(a.name) === g).reduce((s, a) => s + a.balance, 0);
+    const segs = groups.map(g => ({ label: g, v: gsum(g), c: gc[g] }));
+    const inv = S.accounts.filter(a => GROUP(a.name) === 'Investasi' && a.balance); const invT = inv.reduce((s, a) => s + a.balance, 0) || 1;
+    body = `<div class="card"><div class="label">Total aset (sebelum paylater)</div><div class="big num">${rp(segs.reduce((s, x) => s + x.v, 0))}</div>
+      ${stackBar(segs)}${legend(segs.map(s => ({ ...s, right: rp(s.v) })))}
+      ${D.pay < 0 ? `<div class="hint" style="margin-top:10px">utang paylater ${rp(D.pay)} → bersih ${rp(D.net)}</div>` : ''}</div>
+      ${inv.length ? `<div class="sec"><h2>Isi investasi</h2><span class="label num">${rp(invT)}</span></div>
+      <div class="card">${stackBar(inv.map((a, k) => ({ v: a.balance, c: ['#7C5CD6','#B9A6F0','#5B3FB8'][k % 3] })))}${legend(inv.map((a, k) => ({ label: a.name, v: a.balance, c: ['#7C5CD6','#B9A6F0','#5B3FB8'][k % 3], right: rp(a.balance) + ' · ' + Math.round(a.balance / invT * 100) + '%' })))}
+      <div class="hint" style="margin-top:10px">nilai sekarang (harga pasar), bukan jumlah yang disetor</div></div>` : ''}
+`;
+  }
+  $('#app').innerHTML = head + body; bindCharts();
 }
-function catDetail(c){
-  const tx = derived().tx.filter(t => t.tab === ui.repTab && t.cf === 'Spending' && t.cat === c).sort((a,b)=>b.date.localeCompare(a.date));
-  openSheet(`<h3>${esc(c)}</h3><div class="list">${tx.map(txItem).join('') || '<div class="empty">kosong</div>'}</div>`);
+function catDetail(k){
+  const c = ui._cats[k]; const D = derived(); const tabs = tabsWithData(D);
+  const per = tabs.map(t => ({ t, v: D.tx.filter(x => x.tab === t && x.cf === 'Spending' && x.cat === c && x.amt < bigLimit()).reduce((s, x) => s + x.amt, 0) }));
+  const tx = D.tx.filter(t => t.tab === ui.repTab && t.cf === 'Spending' && t.cat === c).sort((a, b) => b.date.localeCompare(a.date));
+  const pl = {}; tx.forEach(t => { const n = norm(t.desc) || t.desc; (pl[n] = pl[n] || { n: 0, v: 0 }); pl[n].n++; pl[n].v += t.amt; });
+  const top = Object.entries(pl).sort((a, b) => b[1].v - a[1].v).slice(0, 5);
+  const avg = per.reduce((s, x) => s + x.v, 0) / Math.max(1, per.length);
+  openSheet(`<h3><i class="sw2" style="background:${catColor(c)}"></i>${esc(c)}</h3>
+    <div class="card"><div class="label">Per periode · rata-rata ${short(avg)}</div>${groupedBars(per.map(x => ({ label: tabLabel(x.t), on: x.t === ui.repTab, vals: [{ v: x.v, c: catColor(c) }] })), { h: 110 })}</div>
+    ${top.length ? `<div class="sec"><h2>Paling banyak di</h2></div><div class="list">${top.map(([n, x]) => `<div class="item"><div class="it-main"><div class="it-t">${esc(n)}</div><div class="it-s">${x.n}x</div></div><div class="it-v num">${short(x.v)}</div></div>`).join('')}</div>` : ''}
+    <div class="sec"><h2>Transaksi ${tabLabel(ui.repTab)}</h2></div><div class="list">${tx.map(txItem).join('') || '<div class="empty">kosong</div>'}</div>`);
 }
 
+/* ============ AKUN ============ */
 function vAcc(){
   const D = derived();
   const groups = ['Bank','E-wallet','Tunai','Investasi','Paylater'];
+  const subs = subscriptions(D); const subTot = subs.reduce((s, x) => s + x.perMonth, 0);
   $('#app').innerHTML = `
   <div class="top"><div><div class="sub">saldo per ${fdate(D.today)}</div><h1>Akun</h1></div>${refreshIcon}</div>
   ${groups.map(g => { const a = S.accounts.filter(x => GROUP(x.name) === g); if (!a.length) return '';
-    return `<div class="sec"><h2>${g}</h2><span class="label num">${rp(a.reduce((s,x)=>s+x.balance,0))}</span></div>
+    return `<div class="sec"><h2>${g}</h2><span class="label num">${rp(a.reduce((s, x) => s + x.balance, 0))}</span></div>
     <div class="list">${a.map(x => `<div class="item" onclick="openAcc('${esc(x.name)}')"><div class="ic ${IC[g]}">${esc(initials(x.name))}</div>
       <div class="it-main"><div class="it-t">${esc(x.name)}</div><div class="it-s">periode ini +${short(x.inn)} / -${short(x.out)}</div></div>
-      <div class="it-v num ${x.balance<0?'neg':''}">${rp(x.balance)}</div></div>`).join('')}</div>`; }).join('')}
+      <div class="it-v num ${x.balance < 0 ? 'neg' : ''}">${rp(x.balance)}</div></div>`).join('')}</div>`; }).join('')}
+  ${subs.length ? `<div class="sec"><h2>Langganan terdeteksi</h2><span class="label num">±${short(subTot)}/bln</span></div>
+    <div class="list">${subs.map(s => `<div class="item"><div class="ic blue">${esc(initials(s.name))}</div><div class="it-main"><div class="it-t">${esc(s.name)}</div><div class="it-s">${esc(s.cat)} · muncul ${s.n} dari 4 periode terakhir</div></div><div class="it-v num">${short(s.perMonth)}</div></div>`).join('')}</div>
+    <div class="hint" style="margin:8px 2px 0">±${rp(subTot * 12)} per tahun</div>` : ''}
   <div class="sec"><h2>Pengaturan</h2></div>
   <div class="list">
-    <div class="item" onclick="editBills()"><div class="ic">TG</div><div class="it-main"><div class="it-t">Tagihan rutin</div><div class="it-s">${(S.bills||[]).map(b=>b.name+' tgl '+b.day).join(', ')||'belum ada'}</div></div></div>
-    <div class="item" onclick="editBudgets()"><div class="ic">AG</div><div class="it-main"><div class="it-t">Anggaran per kategori</div><div class="it-s">${Object.keys(S.budgets||{}).filter(k=>+S.budgets[k]).length} kategori diatur</div></div></div>
-    <div class="item" onclick="resetCfg()"><div class="ic">⚙</div><div class="it-main"><div class="it-t">Koneksi spreadsheet</div><div class="it-s">terakhir sinkron ${S.updated ? new Date(S.updated).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}) : '-'}</div></div></div>
+    <div class="item" onclick="editBills()"><div class="ic">TG</div><div class="it-main"><div class="it-t">Tagihan rutin</div><div class="it-s">${(S.bills || []).map(b => b.name + ' tgl ' + b.day).join(', ') || 'belum ada'}</div></div></div>
+    <div class="item" onclick="editPlan()"><div class="ic">RB</div><div class="it-main"><div class="it-t">Rencana bulanan & tabungan</div><div class="it-s">${goals().map(g=>g.name+' '+short(g.monthly)).join(' · ') || 'belum dipasang'}</div></div></div>
+    <div class="item" onclick="editBudgets()"><div class="ic">AG</div><div class="it-main"><div class="it-t">Anggaran per kategori</div><div class="it-s">${Object.keys(S.budgets || {}).filter(k => +S.budgets[k]).length} kategori diatur</div></div></div>
+    <div class="item" onclick="resetCfg()"><div class="ic">⚙</div><div class="it-main"><div class="it-t">Koneksi spreadsheet</div><div class="it-s">terakhir sinkron ${S.updated ? new Date(S.updated).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) : '-'}</div></div></div>
   </div>`;
+}
+
+/* ============ RIWAYAT (cari & filter) ============ */
+const HF = { q: '', tab: '', cat: '', acc: '', cf: '' };
+function openHistory(){ view = 'hist'; render(); }
+function vHist(){
+  const D = derived(); const tabs = tabsWithData(D);
+  const q = HF.q.toLowerCase();
+  let tx = D.tx.filter(t => t.date && (!HF.tab || t.tab === HF.tab) && (!HF.cat || t.cat === HF.cat) && (!HF.acc || t.from === HF.acc || t.to === HF.acc) && (!HF.cf || t.cf === HF.cf)
+    && (!q || (t.desc + ' ' + t.cat + ' ' + t.from + ' ' + t.to).toLowerCase().includes(q) || String(t.amt).includes(q.replace(/\D/g, '') || '~')));
+  tx.sort((a, b) => b.date.localeCompare(a.date) || b.row - a.row);
+  const tot = tx.filter(t => t.cf === 'Spending').reduce((s, t) => s + t.amt, 0), tin = tx.filter(t => t.cf === 'Income').reduce((s, t) => s + t.amt, 0);
+  const shown = tx.slice(0, ui.histN || 120); let html = '', last = '';
+  shown.forEach(t => { if (t.date !== last) { if (last) html += '</div>'; const ds = tx.filter(x => x.date === t.date && x.cf === 'Spending').reduce((s, x) => s + x.amt, 0); const dd = new Date(t.date + 'T12:00');
+    html += `<div class="sec small"><h2>${HARI[dd.getDay()]}, ${fdate(t.date)} ${t.date.slice(0, 4)}</h2><span class="label num">${ds ? '-' + short(ds) : ''}</span></div><div class="list">`; last = t.date; } html += txItem(t); });
+  if (last) html += '</div>';
+  const sel = (k, opts, ph) => `<select onchange="HF.${k}=this.value;vHist()" class="fsel ${HF[k] ? 'on' : ''}"><option value="">${ph}</option>${opts.map(o => `<option value="${esc(o[0])}" ${HF[k] === o[0] ? 'selected' : ''}>${esc(o[1])}</option>`).join('')}</select>`;
+  $('#app').innerHTML = `
+  <div class="top"><div style="display:flex;align-items:center;gap:10px"><button class="iconbtn" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m15 6-6 6 6 6"/></svg></button><h1>Riwayat</h1></div></div>
+  <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><input id="hq" placeholder="cari: bakso, gina, 25000…" value="${esc(HF.q)}" oninput="HF.q=this.value;clearTimeout(window._hq);window._hq=setTimeout(()=>{vHist();const i=$('#hq');i.focus();i.setSelectionRange(i.value.length,i.value.length)},250)"></div>
+  <div class="hscroll">
+    ${sel('tab', tabs.map(t => [t, 'periode ' + tabLabel(t)]).reverse(), 'semua periode')}
+    ${sel('cf', [['Spending', 'keluar'], ['Income', 'masuk'], ['Transfer', 'pindah'], ['Invest / Savings', 'investasi']], 'semua jenis')}
+    ${sel('cat', S.lists.spending.concat(S.lists.income).map(c => [c, c.trim()]), 'semua kategori')}
+    ${sel('acc', S.accounts.map(a => [a.name, a.name]), 'semua akun')}
+  </div>
+  <div class="card" style="padding:14px 18px"><div class="split" style="margin:0;padding:0;border:0">
+    <div><div class="label">Transaksi</div><div class="v num">${tx.length}</div></div>
+    <div><div class="label">Keluar</div><div class="v num">${short(tot)}</div></div>
+    <div><div class="label">Masuk</div><div class="v num pos">${short(tin)}</div></div></div></div>
+  ${html || '<div class="list"><div class="empty">tidak ketemu</div></div>'}
+  ${tx.length > shown.length ? `<button class="btn ghost" style="margin-top:12px" onclick="ui.histN=(ui.histN||120)+150;vHist()">tampilkan lagi</button>` : ''}`;
 }
 
 /* ============ sheets / actions ============ */
@@ -383,6 +948,7 @@ function openTx(tab, row){
   openSheet(`<h3>${esc(t.desc || t.cat)}</h3>
     <div class="card"><div class="label">${esc(t.cf)}${t.cat && t.cf!=='Transfer' ? ' · ' + esc(t.cat) : ''}</div><div class="big num">${rp(t.amt)}</div>
     <div class="hint">${fdate(t.date)} · ${esc([t.from, t.to].filter(Boolean).join(' → '))}<br>tab ${t.tab}, baris ${t.row}</div></div>
+    <button class="btn" style="margin-bottom:10px" onclick="editTx('${tab}',${row})">edit</button>
     <div class="grid2"><button class="btn ghost" onclick="dupTx('${tab}',${row})">duplikat</button><button class="btn danger" onclick="delTx('${tab}',${row})">hapus</button></div>`);
 }
 async function delTx(tab, row){
@@ -390,6 +956,8 @@ async function delTx(tab, row){
     closeSheet(); toast('terhapus'); render(); load(true); }
   catch(e){ toast(e.message); } finally { $('#sheet').classList.remove('loading'); }
 }
+function editTx(tab, row){ const t = derived().tx.find(x => x.tab === tab && x.row === row);
+  openAdd({ cashflow:t.cf, category:t.cf==='Transfer'?'':t.cat, amount:t.amt, from:t.from, to:t.to, description:t.desc, date:t.date || todayISO() }, { tab, row }); }
 function dupTx(tab, row){ const t = derived().tx.find(x => x.tab === tab && x.row === row);
   openAdd({ cashflow:t.cf, category:t.cat, amount:t.amt, from:t.from, to:t.to, description:t.desc, date:todayISO() }); }
 
@@ -426,7 +994,7 @@ function editBudgets(){
     <button class="btn" onclick="saveBudgets()">simpan</button>`);
 }
 async function saveBudgets(){
-  const b = {}; document.querySelectorAll('[data-cat]').forEach(i => { const v = parseAmt(i.value); if (v) b[i.dataset.cat] = v; });
+  const b = { __plan: plan() || undefined }; if (!b.__plan) delete b.__plan; document.querySelectorAll('[data-cat]').forEach(i => { const v = parseAmt(i.value); if (v) b[i.dataset.cat] = v; });
   try { await api('saveSettings', { budgets: b }); S.budgets = b; ls.set('state', S); closeSheet(); toast('anggaran tersimpan'); render(); } catch(e){ toast(e.message); }
 }
 function billRow(b={}){ return `<div class="card bill" style="padding:12px"><div class="grid2"><div class="field" style="margin:0"><label>Nama</label><input class="bn" value="${esc(b.name||'')}" placeholder="mis. iCloud"></div>
@@ -451,14 +1019,16 @@ function resetCfg(){ openSheet(`<h3>Koneksi spreadsheet</h3><div class="hint" st
 const FORM = { cashflow:'Spending', category:'', amount:0, from:'', to:'', date:'', description:'' };
 const OTHER_CF = ['Invest / Savings','Dari Asset / Saving','Piutang Baru','Pelunasan Piutang','Cicilan / Utang Baru','Bayar Cicilan / Utang','Financial Goals'];
 const CF_LABEL = { 'Invest / Savings':'Nabung / investasi', 'Dari Asset / Saving':'Ambil dari investasi', 'Piutang Baru':'Kasih pinjaman',
-  'Pelunasan Piutang':'Pinjaman dibayar balik', 'Cicilan / Utang Baru':'Ngutang / cicilan baru', 'Bayar Cicilan / Utang':'Bayar utang / cicilan', 'Financial Goals':'Financial goals' };
+  'Pelunasan Piutang':'Pinjaman dibayar balik', 'Cicilan / Utang Baru':'Ngutang / cicilan baru', 'Bayar Cicilan / Utang':'Bayar utang / cicilan', 'Financial Goals':'Nabung ke tabungan' };
 const needFrom = cf => ['Spending','Transfer','Invest / Savings','Dari Asset / Saving','Piutang Baru','Bayar Cicilan / Utang','Financial Goals'].includes(cf);
 const needTo = cf => ['Income','Transfer','Invest / Savings','Dari Asset / Saving','Pelunasan Piutang','Cicilan / Utang Baru'].includes(cf);
 const catsFor = cf => cf === 'Spending' ? S.lists.spending : cf === 'Income' ? S.lists.income
-  : ['Invest / Savings','Dari Asset / Saving'].includes(cf) ? S.lists.invest : cf === 'Financial Goals' ? S.lists.sinking : null;
+  : cf === 'Invest / Savings' ? S.lists.invest : cf === 'Dari Asset / Saving' ? S.lists.invest.concat(S.lists.sinking) : cf === 'Financial Goals' ? S.lists.sinking : null;
 const lastAcc = () => ls.get('lastAcc', 'Bank Jago');
 
-function openAdd(pre){
+let EDITING = null;
+function openAdd(pre, editing){
+  EDITING = editing || null;
   Object.assign(FORM, { cashflow:'Spending', category:'', amount:0, from:lastAcc(), to:'', date:todayISO(), description:'' }, pre || {});
   drawAdd();
 }
@@ -466,7 +1036,7 @@ function drawAdd(){
   const cf = FORM.cashflow; const seg = cf==='Spending'?0:cf==='Income'?1:cf==='Transfer'?2:3;
   const cats = catsFor(cf); const accs = S.accounts.map(a=>a.name);
   const opt = (sel) => `<option value="">pilih akun</option>` + accs.map(a=>`<option ${a===sel?'selected':''}>${esc(a)}</option>`).join('');
-  openSheet(`<h3>Catat transaksi</h3>
+  openSheet(`<h3>${EDITING ? 'Edit transaksi' : 'Catat transaksi'}</h3>
     <div class="magic"><textarea id="mtext" rows="1" placeholder="ketik aja: makan bakso 25rb pakai jago" oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
       <button onclick="$('#file').click()" aria-label="screenshot"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="15" rx="3"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg></button>
       <button class="go" onclick="magic()" aria-label="isi otomatis"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
@@ -483,7 +1053,7 @@ function drawAdd(){
       <div class="field"><label>Tanggal</label><input type="date" value="${FORM.date}" onchange="FORM.date=this.value"></div>
       <div class="field"><label>Keterangan</label><input value="${esc(FORM.description)}" oninput="FORM.description=this.value" placeholder="mis. bakso basuki"></div>
     </div>
-    <button class="btn" id="saveBtn" onclick="submitAdd()">simpan</button>`);
+    <button class="btn" id="saveBtn" onclick="submitAdd()">${EDITING ? 'simpan perubahan' : 'simpan'}</button>`);
 }
 function setCf(i){ const map = ['Spending','Income','Transfer', OTHER_CF[0]]; const prev = FORM.cashflow; FORM.cashflow = map[i]; FORM.category='';
   if (map[i]==='Income' && !FORM.to) { FORM.to = FORM.from || lastAcc(); FORM.from=''; }
@@ -502,6 +1072,7 @@ function submitAdd(){
 async function saveTx(tx){
   const b = $('#saveBtn'); $('#sheet').classList.add('loading');
   try {
+    if (EDITING) { await api('delete', EDITING); S.tx = S.tx.filter(r => !(r[0] === EDITING.tab && r[1] === EDITING.row)); EDITING = null; }
     const r = await api('add', { tx });
     if (tx.from) ls.set('lastAcc', tx.from);
     S.tx.push([r.tab, r.row, tx.date, tx.description, +tx.amount, tx.cashflow, tx.cashflow==='Transfer'?' Antar Account':tx.category, tx.from||'', tx.to||'']);

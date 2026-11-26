@@ -1092,7 +1092,7 @@ async function runParse(body){
     Object.assign(FORM, { cashflow: tx.cashflow || 'Spending', category: tx.category || '', amount: +tx.amount || 0,
       from: acc.includes(tx.from) ? tx.from : (needFrom(tx.cashflow) ? FORM.from : ''), to: acc.includes(tx.to) ? tx.to : '',
       date: tx.date || todayISO(), description: tx.description || '' });
-    if (FORM.cashflow==='Transfer') FORM.category=''; drawAdd(); toast('cek dulu, lalu simpan');
+    if (FORM.cashflow==='Transfer') FORM.category=''; drawAdd(); toast(tx.source === 'lokal' ? 'dibaca tanpa AI (Gemini lagi gagal) — cek dulu ya' : 'cek dulu, lalu simpan');
   } catch(e){ toast(e.message); } finally { $('#sheet').classList.remove('loading'); }
 }
 function shrink(file){ return new Promise(res => { const img = new Image(); img.onload = () => { const max = 1280; const k = Math.min(1, max / Math.max(img.width, img.height));
